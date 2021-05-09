@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        line-height: 140%;
+        text-align: center;
+        background: url('bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    header h1 {
+        color: #ff4893;
+    }
+
+    header {
+        width: 80%;
+        background: rgba(233, 210, 210, 0.95);
+        color: #333;
+        padding: 3%;
+        margin: 0 auto;
+    }
+
+    #main {
+        width: 80%;
+        background: rgba(224, 208, 208, 0.95);
+        padding: 3%;
+        margin: 0 auto;
+    }
+
+    input[type=text] {
+        display: inline-block;
+        padding: 20px;
+        border-radius: 15px;
+        border: none;
+        font-size: 110%;
+    }
+
+
+    #add {
+        display: inline-block;
+        margin: 20px;
+        font-size: 200%;
+    }
+
+    #calc {
+        padding: 1%;
+        width: 20%;
+        font-size: 120%;
+        border-radius: 10px;
+        color: #fff;
+        border: none;
+        background: #ff4893;
+        cursor: pointer;
+    }
+
+    #reset {
+        padding: 1%;
+        width: 20%;
+        font-size: 120%;
+        border-radius: 10px;
+        color: #fff;
+        border: none;
+        background: #ff4893;
+        cursor: pointer;
+    }
+
+    #button {
+        margin-top: 50px;
+    }
+
+    #calc:hover {
+        background-color: #e62274;
+        transition: .5s ease;
+    }
+    #reset:hover {
+        background-color: #e62274;
+        transition: .5s ease;
+    }
+
+    footer {
+        width: 80%;
+        padding: 3%;
+        background: rgba(255, 255, 255, 0.95);
+        margin: auto;
+    }
+
+    #output {
+        color: #ff4893;
+        font-size: 200%;
+        height: 50px;
+    }
+
+    .heart {
+        color: #ff4893;
+    }
+
+    @media only screen and (max-width:700px) {
+        #name1 {
+            display: inline-block;
+            padding: 5px;
+            border-radius: 15px;
+            border: none;
+            font-size: 110%;
+        }
+
+        #name2 {
+            display: inline-block;
+            padding: 5px;
+            border-radius: 15px;
+            border: none;
+            font-size: 110%;
+        }
+
+        #calc {
+            padding: 1%;
+            width: 50%;
+            font-size: 120%;
+            border-radius: 10px;
+            color: #fff;
+            border: none;
+            background: #ff4893;
+        }
+
+        #name1::placeholder {
+            text-align: center;
+        }
+
+        #name2::placeholder {
+            text-align: center;
+        }
+
+        #reset {
+            padding: 1%;
+            width: 45%;
+            font-size: 120%;
+            border-radius: 10px;
+            color: #fff;
+            border: none;
+            background: #ff4893;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Love Calculator</h1>
+        <p>Find out if you and your partner are compatible!</p>
+    </header>
+    <div id="main">
+
+        <input id="name1" type="text" placeholder="Enter Your Name">
+
+        <span id="add">+</span>
+
+        <input id="name2" type="text" placeholder="Enter His/Her Name">
+        <section id="button">
+            <button id="calc" type="button" onclick="anything()">Calculate!</button>
+            <button id="reset" type="button" onclick="reset()">Try Again!</button>
+        </section>
+        <div id="output">
+
+        </div>
+    </div>
+    <footer>
+        <p>Made with <span class="heart">&#9825;</span> by Sayan Ghosh</p>
+    </footer>
+
+
+    <script>
+        function anything() {
+            let name1 = document.getElementById("name1").value;
+            let name2 = document.getElementById("name2").value;
+            let calc = document.getElementById("calc");
+            let output = document.getElementById("output");
+            let result = Math.floor(Math.random() * 100 + 1);
+            let para = document.createElement("p");
+            if (name1 == "Sayan" && name2 == "Adrita" || name1 == "Adrita" && name2 == "Sayan" || name1 == "sayan" && name2 == "adrita" || name1 == "adrita" && name2 == "sayan" || name1 == "Sayan Ghosh" && name2 == "Adrita Sarkar" || name1 == "Adrita Sarkar" && name2 == "Sayan Ghosh" || name1 == "Sayan ghosh" && name2 == "Adrita sarkar" || name1 == "sayan ghosh" && name2 == "adrita sarkar" || name1 == "adrita sarkar" && name2 == "sayan ghosh" || name1 == "Sayan" && name2 == "Aadrita" || name1 == "Aadrita Sarkar" && name2 == "Sayan Ghosh" || name1 == "Sayan Ghosh" && name2 == "Aadrita Sarkar") {
+                para.innerHTML = `You are 99% compatible!`;
+                output.appendChild(para);
+
+            } else {
+
+
+
+
+                para.innerHTML = `You are ${result}% compatible!`;
+
+
+                output.appendChild(para);
+
+
+
+
+            }
+        }
+
+        function reset() {
+            let first = document.getElementById("name1");
+            let sec = document.getElementById("name2");
+            let output = document.getElementById("output");
+
+            first.value = "";
+            sec.value = "";
+            output.innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>
